@@ -1,6 +1,5 @@
 import { Link, useLoaderData } from "react-router-dom";
 import { toast } from "react-toastify";
-
 import Intro from "../components/Intro";
 import AddBudgetForm from "../components/AddBudgetForm";
 import AddExpenseForm from "../components/AddExpenseForm";
@@ -35,7 +34,6 @@ export async function dashboardAction({ request }) {
       throw new Error("There was a problem creating your account.");
     }
   }
-
   if (_action === "createBudget") {
     try {
       createBudget({
@@ -81,12 +79,14 @@ const Dashboard = () => {
     <>
       {userName ? (
         <div className="dashboard">
-          <h1>
-            Welcome back, <span className="accent">{userName}</span>
+          <h1 className="hover-heading">
+            Welcome, Dear{" "}
+            <span className="accent hover-accent">{userName}</span>
           </h1>
           <div className="grid-sm">
             {budgets && budgets.length > 0 ? (
               <div className="grid-lg">
+                <h2 id="myid">Add New Expenses</h2>
                 <div className="flex-lg">
                   <AddBudgetForm />
                   <AddExpenseForm budgets={budgets} />
