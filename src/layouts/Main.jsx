@@ -19,7 +19,7 @@ const Main = () => {
     <div className="layout">
       <Nav userName={userName}/>
       <main>
-      <Outlet/>
+        <Outlet/>
       </main>
       <img src={wave} alt="" />
     </div>
